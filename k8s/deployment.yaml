@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: discord-bot
+  namespace: bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: discord-bot
+  template:
+    metadata:
+      labels:
+        app: discord-bot
+    spec:
+      containers:
+        - name: discord-bot
+          image: ghcr.io/<your-github-user>/discord-bot:latest # {"$imagepolicy": "flux-system:discord-bot"}
+          envFrom:
+            - secretRef:
+                name: discord-bot-secret
