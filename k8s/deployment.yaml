@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: discord-bot
-          image: ghcr.io/<your-github-user>/discord-bot:latest # {"$imagepolicy": "flux-system:discord-bot"}
+          image: ghcr.io/MOS-Elecs/discord-bot:latest # {"$imagepolicy": "flux-system:discord-bot"}
           envFrom:
             - secretRef:
                 name: discord-bot-secret
